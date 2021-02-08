@@ -14,8 +14,12 @@ for ticker in symbol_column:
     symbol_list.append(ticker)
     if '^' in ticker:
         symbol_list.pop()
+    if '/' in ticker:
+        symbol_list.pop()
+
+print(symbol_list)
 
 # write tickers to new file
-with open('stocks.txt', 'w') as ticker_file:
+with open('runner/stocks/stocks.txt', 'w') as ticker_file:
     for ticker in symbol_list:
         ticker_file.write(f'{ticker}\n')
